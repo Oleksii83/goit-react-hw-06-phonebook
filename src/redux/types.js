@@ -1,6 +1,6 @@
 export default {
-  GET_FILTER: 'book/getFilter',
+  CHANGE_FILTER: 'book/getFilter',
   ON_SEARCH: 'book/onSearchChange',
-  DEL_CONTACT: 'book/onDeleteContact',
+  DEL_CONTACT: 'book/delete',
   ADD_CONTACT: 'book/addContact',
 };

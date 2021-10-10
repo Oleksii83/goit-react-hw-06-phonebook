@@ -13,14 +13,18 @@ const contacts = (state = [], { type, payload }) => {
     case types.ADD_CONTACT:
       return [...state, payload];
 
-    case types.DEL_CONTACT:
+    case types.DELETE:
       return state.filter(({ id }) => id !== payload);
     default:
       return state;
   }
 };
 
-const filter = (state = '', action) => {
+const filter = (state = '', { type, payload }) => {
+  switch (type) {
+    case types.CHANGE_FILTER:
+      return payload;
+  }
   return state;
 };
 

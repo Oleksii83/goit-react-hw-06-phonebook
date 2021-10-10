@@ -76,6 +76,7 @@ function ContactForm({ onSubmit }) {
 const mapDispatchToProps = dispath => ({
   onSubmit: (name, number) => dispath(actions.addContact(name, number)),
 });
+
 export default connect(null, mapDispatchToProps)(ContactForm);
 
 // class OldContactForm extends Component {

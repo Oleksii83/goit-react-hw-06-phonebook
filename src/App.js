@@ -48,6 +48,8 @@ export default function App() {
         <h1>Phonebook</h1>
         <ContactForm />
         <h2 className="SearchName">Contact</h2>
+        <Filter />
+        {/* value={filter} onChange={onSearchChange} /> */}
         <ContactList />
         {/* contacts={getFilterSearch()} onDeleteContact={onDeleteContact} /> */}
       </div>

@@ -1,4 +1,5 @@
-// import { Component } from 'react';
+import { connect } from 'react-redux';
+import action from '../../redux/action';
 import React from 'react';
 import s from './Filter.module.css';
 
@@ -15,4 +16,12 @@ const Filter = ({ value, onChange }) => (
   </label>
 );
 
-export default Filter;
+const mapStateToProps = state => ({
+  value: state.phonebook.filter,
+});
+
+const mapDispatchToProps = dispath => ({
+  onChange: e => dispath(action.changeFilter(e.target.value)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

@@ -1,11 +1,6 @@
 import types from './types';
 import shortid from 'shortid';
 
-export const myAction = value => ({
-  type: 'MY_ACTION',
-  payload: value,
-});
-
 const addContact = ({ name, number }) => ({
   type: types.ADD_CONTACT,
   payload: {
@@ -16,8 +11,13 @@ const addContact = ({ name, number }) => ({
 });
 
 const deleteContact = id => ({
-  types: types.DEL_CONTACT,
+  types: types.DELETE,
   payload: id,
 });
 
-export default { addContact, deleteContact };
+const changeFilter = value => ({
+  types: types.CHANGE_FILTER,
+  payload: value,
+});
+
+export default { addContact, deleteContact, changeFilter };

@@ -4,10 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
+import { Provider } from 'react-redux';
+
+import { myAction } from './redux/action';
+
+console.log('🚀 ~ file: index.js ~ line 7 ~ store', store.getState());
+store.dispatch(myAction());
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

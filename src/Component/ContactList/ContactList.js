@@ -16,10 +16,17 @@ const ContactList = ({ contacts, onDeleteContact }) => (
   </ul>
 );
 
-const mapStateToProps = state => ({ contacts: state.phonebook.contacts });
+const getFilterSearch = (contacts, filter) => {
+  const normalizedFilter = filter.toLowerCase();
+  return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
+};
 
-// const mapDispatchToProps = dispath => ({
-//   onDeleteContact: id => dispatch(actions.deleteContact(id)),
-// });
+const mapStateToProps = ({ phonebook: { contacts, filter } }) => ({
+  contacts: getFilterSearch(contacts, filter),
+});
 
-export default connect(mapStateToProps)(ContactList);
+const mapDispatchToProps = dispatch => ({
+  onDeleteContact: id => dispatch(actions.deleteContact(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

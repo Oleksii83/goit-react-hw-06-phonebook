@@ -1,5 +1,5 @@
-import { createStore, combineReducers } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { combineReducers } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import reducer from './reducer';
 
 // const reducer = (state = {}, action) => {
@@ -7,10 +7,16 @@ import reducer from './reducer';
 //   return state;
 // };
 
-const rootReducer = combineReducers({
-  phonebook: reducer,
-});
+// const rootReducer = combineReducers({
+//   phonebook: reducer,
+// });
 
-const store = createStore(rootReducer, composeWithDevTools());
+// const store = createStore(rootReducer, composeWithDevTools());
+const store = configureStore({
+  reducer: {
+    phonebook: reducer,
+  },
+  devTools: process.env.NODE_ENV === 'development',
+});
 
 export default store;

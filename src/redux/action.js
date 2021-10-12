@@ -1,4 +1,5 @@
 import shortid from 'shortid';
+import PropTypes from 'prop-types';
 import { createAction } from '@reduxjs/toolkit';
 
 const addContact = createAction('ADD_CONTACT', ({ name, number }) => {
@@ -11,8 +12,15 @@ const addContact = createAction('ADD_CONTACT', ({ name, number }) => {
   };
 });
 
+addContact.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+};
+
 const deleteContact = createAction('DELETE');
 
 const changeFilter = createAction('CHANGE_FILTER');
 
-export default { addContact, deleteContact, changeFilter };
+const phonebookActions = { addContact, deleteContact, changeFilter };
+
+export default phonebookActions;

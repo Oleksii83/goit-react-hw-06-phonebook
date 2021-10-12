@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import s from './ContactList.module.css';
 import { connect } from 'react-redux';
 import actions from '../../redux/action';
@@ -15,6 +16,10 @@ const ContactList = ({ contacts, onDeleteContact }) => (
     ))}
   </ul>
 );
+
+ContactList.propTypes = {
+  contacts: PropTypes.array,
+};
 
 const getFilterSearch = (contacts, filter) => {
   const normalizedFilter = filter.toLowerCase();

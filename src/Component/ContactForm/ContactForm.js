@@ -23,16 +23,18 @@ function ContactForm({ onSubmit }) {
     }
   };
 
+  const reset = () => {
+    setName('');
+    setNumber('');
+  };
+
+  // console.log(localStorage);
+
   const handleSubmit = e => {
     e.preventDefault();
 
     onSubmit({ name, number });
     reset();
-  };
-
-  const reset = () => {
-    setName('');
-    setNumber('');
   };
 
   const nameInputId = shortid.generate();
@@ -52,6 +54,7 @@ function ContactForm({ onSubmit }) {
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
           required
+          autoComplete="off"
         />
       </label>
       <label className="TelInputContainer" htmlFor={numberInputId}>

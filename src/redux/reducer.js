@@ -11,7 +11,8 @@ const contacts = createReducer(
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ],
   {
-    [action.addContact]: (state, { payload }) => [...state, payload],
+    [action.addContact]: (state, { payload }) =>
+      state.find(contact => contact.name.includes(payload.name)) ? state : [...state, payload],
     [action.deleteContact]: (state, { payload }) => state.filter(({ id }) => id !== payload),
   },
 );
